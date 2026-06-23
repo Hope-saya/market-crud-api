@@ -29,11 +29,11 @@ src/main/java
 
 ## Lessons Learned
 ### What I Have Learned So Far
--Spring Boot project structure
--How Spring Boot applications start and run
--How Spring Boot connects to PostgreSQL
--Creating databases and tables in PostgreSQL
--Basic SQL operations
+- Spring Boot project structure
+- How Spring Boot applications start and run
+- How Spring Boot connects to PostgreSQL
+- Creating databases and tables in PostgreSQL
+- Basic SQL operations
 
 
 This section will be updated as I continue learning.
