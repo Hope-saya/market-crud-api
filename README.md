@@ -29,12 +29,20 @@ src/main/java
 
 ## Lessons Learned
 ### What I Have Learned So Far
-- Spring Boot project structure
-- How Spring Boot applications start and run
-- How Spring Boot connects to PostgreSQL
-- Creating databases and tables in PostgreSQL
-- Basic SQL operations
-
+- How to set up a Spring Boot project and add dependencies (Spring Web, Spring Data JPA, PostgreSQL Driver)
+- How to connect a Spring Boot application to a PostgreSQL database
+- How to create and map an Entity class using JPA annotations (@Entity, @Id, @GeneratedValue)
+- Understanding of Spring Boot layered architecture:
+  - Controller (handles HTTP requests)
+  - Service (business logic layer)
+  - Repository (database access layer)
+  - Entity (database model)
+- How Spring Data JPA simplifies database operations using JpaRepository
+- How to implement basic REST APIs:
+  - GET (retrieve data)
+  - POST (create data)
+  - DELETE (remove data)
+- How to test REST APIs using Postman
 
 This section will be updated as I continue learning.
 
