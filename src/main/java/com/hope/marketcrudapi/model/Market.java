@@ -3,7 +3,7 @@
 package com.hope.marketcrudapi.model;
 
 import jakarta.persistence.*;
-
+import jakarta.validation.constraints.NotBlank;
 
 
 @Entity
@@ -11,12 +11,16 @@ import jakarta.persistence.*;
 
 public class Market {
 
+    //@Id tells JPA that this field is the primary key
     @Id
+    //Tells postGre to generate IDs automatically
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long Id;
+        private Long Id; //Long because database IDs are often Large numbers
+    //Validation
+        @NotBlank(message = "Market cannot be empty")
         private String name;
 
-        //Default constructor required by JPA
+        //Default constructor required by JPA - Spring uses this constructor when creating objects from database rows.
     public Market(){
 
     }
