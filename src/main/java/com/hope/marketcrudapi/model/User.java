@@ -1,5 +1,3 @@
-
-
 package com.hope.marketcrudapi.model;
 
 import com.hope.shared.models.BaseModel;
@@ -10,13 +8,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "markets")
+@Table(name ="users")
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
 @Setter
-public class Market extends BaseModel {
+public class User extends BaseModel {
 
+    @Getter
     private String name;
+    @Getter
+    private String email;
+    private String password;
 
 }

@@ -2,45 +2,68 @@ package com.hope.marketcrudapi.controller;
 
 import com.hope.marketcrudapi.model.Market;
 import com.hope.marketcrudapi.service.marketService;
+import com.hope.shared.responses.ApiResponse;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController //Tells Spring that this class handles web requests
-@RequestMapping("/markets") // base URL meaning everything starts with/markets
+@RestController
+@RequestMapping("/markets")
 public class MarketController {
 
-    //Controller depends on the Service
     private marketService marketService1;
 
-    public MarketController(marketService marketService1){
+    public MarketController(marketService marketService1) {
         this.marketService1 = marketService1;
     }
-// Implement the GET, POST, DELETE, PUT . Delete has a void since it doesn't return anything.
+
     @GetMapping
 
-    public List<Market> getMarkets(){
-        return marketService1.getAllMembers();
+    public ApiResponse <List<Market>> getMarkets(){
+//        return marketService1.getAllMembers();
+        List<Market> markets = marketService1.getAllMembers();
+
+        return new  ApiResponse<>(
+                true,
+                200,
+                "Markets Retrieved Successfully",
+                markets
+                );
     }
 
     @PostMapping
-    public Market createMarket(@Valid @RequestBody Market market){
-        return marketService1.createMarket(market);
+    public ApiResponse<Market> createMarket(@Valid @RequestBody Market market){
+        Market market1 = marketService1.createMarket(market);
+
+        return new ApiResponse<>(
+                true,
+                201,
+                "Market created successfully",
+                market1
+        );
     }
 
     @DeleteMapping("/{Id}")
-    public void deleteMarket(@PathVariable Long Id){
+    public ApiResponse<Void> deleteMarket(@PathVariable Long Id){
         marketService1.deleteMarket(Id);
+        return new ApiResponse<>(
+                true,
+                200,
+                "Market Deleted Successfully",
+                null
+        );
     }
-    // Find it then change it
+
     @PutMapping("/{Id}")
-    public Market updateMarket(@PathVariable Long Id, @Valid @RequestBody Market market){
-        return marketService1.updateMarket(Id, market);
+    public ApiResponse<Market> updateMarket(@PathVariable Long Id, @Valid @RequestBody Market market){
+        Market updatedMarket =  marketService1.updateMarket(Id, market);
+
+        return new ApiResponse<>(
+                true,
+                200,
+                "Market Updated Successfully",
+                updatedMarket
+        );
     }
-
-
-
-
-
 }
